@@ -15,8 +15,48 @@ body {
   background: linear-gradient(135deg, #fff5f7 0%, #ffe9ee 100%);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
+  overflow: hidden;
+  position: relative;
 }
+.floating-decor {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.float-item {
+  position: absolute;
+  bottom: -40px;
+  font-size: 22px;
+  opacity: 0.35;
+  animation: floatUp linear infinite;
+}
+.float-item:nth-child(1) { left: 10%; animation-duration: 9s; animation-delay: 0s; font-size: 24px; }
+.float-item:nth-child(2) { left: 26%; animation-duration: 11s; animation-delay: 2s; font-size: 20px; }
+.float-item:nth-child(3) { left: 45%; animation-duration: 10s; animation-delay: 4s; font-size: 26px; }
+.float-item:nth-child(4) { left: 68%; animation-duration: 12s; animation-delay: 1s; font-size: 22px; }
+.float-item:nth-child(5) { left: 85%; animation-duration: 9.5s; animation-delay: 3s; font-size: 24px; }
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.35;
+  }
+  85% {
+    opacity: 0.35;
+  }
+  100% {
+    transform: translateY(-110vh) rotate(15deg);
+    opacity: 0;
+  }
+}
+
 #main-content {
+  position: relative;
+  z-index: 1;
   background: white;
   padding: 40px 25px;
   border-radius: 30px;
@@ -52,11 +92,20 @@ p {
 </style>
 </head>
 <body>
+<div class="floating-decor" aria-hidden="true">
+  <span class="float-item">🎈</span>
+  <span class="float-item">🤍</span>
+  <span class="float-item">🎈</span>
+  <span class="float-item">❤️</span>
+  <span class="float-item">🎈</span>
+</div>
+
 <div id="main-content">
-  <h1>كل سنة وأنت طيب يا إسلام 🎂✨</h1>
+  <h1>كل سنة وأنت طيب يا إسلام 🎂</h1>
   <p>بداية سنة جديدة ربنا يجعلها عوض ليك عن كل اللي عدا 🤍</p>
   <p>أتمنى لك أيام حلوة زيك تفرح قلبك ❤️</p>
-  <p>وعقبال ١٠٠ سنة يارب 🎈 وأنت محقق اللي بتتمناه 🤲❤️</p>
+  <p>وعقبال ١٠٠ سنة يارب 🎈</p>
+  <p>وأنت محقق اللي بتتمناه 🤲</p>
   <p>ربنا يديم ضحكتك ع وشك ❤️</p>
   <p class="special-line">ومتضايقش ع الماتش 🔪</p>
 </div>
